@@ -1,76 +1,72 @@
 <template>
-<v-app>
-  <v-container fill-height>
-    <v-layout row wrap align-center>
-      <v-flex xs6 offset-xs3>
-        <div class="elevation-2">
-          <v-toolbar dark color="primary">
-            <v-toolbar-title class="white--text">Register</v-toolbar-title>
-          </v-toolbar>
-          <v-form v-model="valid" ref="form" lazy-validation>
-          <div class="pl-4 pr-4 pt-2 pb-2">
-            <v-text-field
-              type="email"
-              name="email"
-              v-model="email"
-              label="e-mail"
-              prepend-icon="mail"
-              :rules="emailRules"
-              required
-            ></v-text-field>
-            <br>
-            <v-text-field
-              type="password"
-              name="password"
-              v-model="password"
-              min="8"
-              label="password"
-              hint="At least 8 characters"
-              :append-icon="e1 ? 'visibility' : 'visibility_off'"
-              :append-icon-cb="() => (e1 = !e1)"
-              :type="e1 ? 'text' : 'password'"
-              prepend-icon="lock"
-              :rules="passwordRules"
-              required
-            ></v-text-field>
-            <br>
-            <v-text-field
-              type="password"
-              name="password2"
-              v-model="password2"
-              min="8"
-              label="confirm password"
-              :append-icon="e2 ? 'visibility' : 'visibility_off'"
-              :append-icon-cb="() => (e2 = !e2)"
-              :type="e2 ? 'text' : 'password'"
-              prepend-icon="lock"
-              :rules="confirmPasswordRules"
-              required
-            ></v-text-field>
-            <br>
-            <v-alert 
-              color="error"
-              icon="warning"
-              value="true"
-              v-if="error"
-              v-html="error"
-            ></v-alert>
-            <br>
-            <v-btn
-              color="primary"
-              @click="register"
-              :disabled="!valid"
-            > 
-              Register
-              <v-icon right dark>send</v-icon>
-            </v-btn>
-          </div>
-          </v-form>
+  <v-layout row wrap align-center>
+    <v-flex xs6 offset-xs3>
+      <div class="elevation-2">
+        <v-toolbar dark color="primary">
+          <v-toolbar-title class="white--text">Register</v-toolbar-title>
+        </v-toolbar>
+        <v-form v-model="valid" ref="form" lazy-validation>
+        <div class="pl-4 pr-4 pt-2 pb-2">
+          <v-text-field
+            type="email"
+            name="email"
+            v-model="email"
+            label="e-mail"
+            prepend-icon="mail"
+            :rules="emailRules"
+            required
+          ></v-text-field>
+          <br>
+          <v-text-field
+            type="password"
+            name="password"
+            v-model="password"
+            min="8"
+            label="password"
+            hint="At least 8 characters"
+            :append-icon="e1 ? 'visibility' : 'visibility_off'"
+            :append-icon-cb="() => (e1 = !e1)"
+            :type="e1 ? 'text' : 'password'"
+            prepend-icon="lock"
+            :rules="passwordRules"
+            required
+          ></v-text-field>
+          <br>
+          <v-text-field
+            type="password"
+            name="password2"
+            v-model="password2"
+            min="8"
+            label="confirm password"
+            :append-icon="e2 ? 'visibility' : 'visibility_off'"
+            :append-icon-cb="() => (e2 = !e2)"
+            :type="e2 ? 'text' : 'password'"
+            prepend-icon="lock"
+            :rules="confirmPasswordRules"
+            required
+          ></v-text-field>
+          <br>
+          <v-alert 
+            color="error"
+            icon="warning"
+            value="true"
+            v-if="error"
+            v-html="error"
+          ></v-alert>
+          <br>
+          <v-btn
+            color="primary"
+            @click="register"
+            :disabled="!valid"
+          > 
+            Register
+            <v-icon right dark>send</v-icon>
+          </v-btn>
         </div>
-      </v-flex>
-    </v-layout>
-  </v-container>
-</v-app>
+        </v-form>
+      </div>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
